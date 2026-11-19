@@ -71,7 +71,9 @@ public class MainGame {
 
     public static void verticalShipPlacement(int shipSize, char[][] array) {
         try (Scanner input = new Scanner(System.in)) {
+            System.out.print("X-Coordinate: ");
             int x = input.nextInt();
+            System.out.print("Y-Coordinate: ");
             int y = input.nextInt();
             
             for (int i = y; i > y - shipSize; i--) {
@@ -87,7 +89,9 @@ public class MainGame {
 
     public static void horizontalShipPlacement(int shipSize, char[][] array) {
         try (Scanner input = new Scanner(System.in)) {
+            System.out.print("X-Coordinate: ");
             int x = input.nextInt();
+            System.out.print("Y-Coordinate: ");
             int y = input.nextInt();
             
             for (int i = x; i < x + shipSize; i++) {
