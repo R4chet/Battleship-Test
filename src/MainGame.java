@@ -3,6 +3,7 @@ import java.util.Arrays;
 
 public class MainGame {  
     public static void main(String[] args) {
+        // Change test
         Ship carrier = new Ship(5);
         Ship battleship = new Ship(4);
         Ship destroyer = new Ship(3);
