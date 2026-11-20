@@ -1,3 +1,6 @@
+import java.util.Scanner;
+import java.util.Arrays;
+
 public class Utilities {
     public static void mainMenu() {
         System.out.println("===========================================================================================");
@@ -16,6 +19,26 @@ public class Utilities {
         System.out.println("(0) Exit");
         System.out.println("===========================================================================================");
     }
+
+    
+    public static void mainMenuLogic() {
+        try (Scanner input = new Scanner(System.in)) {
+            int choice = -1;
+            do {
+                choice = input.nextInt();
+                switch (choice) {
+                case 0:
+                    return;
+                case 1:
+                    Starter.gameStart();
+                    return;
+                default:
+                    System.out.println("Invalid choice.");
+                }
+            } while (choice == -1 || choice < 0 || choice > 1);
+        }
+    }
+
 
     public static void printBoard(char[][] board) {
         for (int i = 0; i < board.length ; i++) {
