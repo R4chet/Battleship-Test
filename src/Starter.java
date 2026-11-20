@@ -15,15 +15,21 @@ public class Starter {
     }
 
     public static void shipPlacementMenu(int shipType, char[][] board) {
-        System.out.println("Select placement orientation: \n(0) Vertical \n(1) Horizontal");
+        System.out.println("Select placement orientation:");
+        System.out.println("(1) Vertical");
+        System.out.println("(2) Horizontal");
+        System.out.println("(0) Cancel");
         try (Scanner input = new Scanner(System.in)) {
             int choice = input.nextInt();
             switch (choice) {
-                case 0:
+                case 1:
                     verticalShipPlacement(shipType, board);
                     break;
-                case 1:
+                case 2:
                     horizontalShipPlacement(shipType, board);
+                    break;
+                case 0:
+                    // Go back to previous
                     break;
                 default:
                 System.out.println("Invalid choice, try again.");
