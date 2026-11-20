@@ -22,42 +22,10 @@ public class MainGame {
             "..........".toCharArray()
         };
 
-        printBoard(emptyBoard);
     }
     
     // INTERFACE COMPONENTS
 
-    public static void mainMenu() {
-        System.out.println("===========================================================================================");
-        System.out.println(" ______   _______ __________________ _        _______  _______          _________ _______");
-        System.out.println("(  ___ \\ (  ___  )\\__   __/\\__   __/( \\      (  ____ \\(  ____ \\|\\     /|\\__   __/(  ____ ) ");
-        System.out.println("| (   ) )| (   ) |   ) (      ) (   | (      | (    \\/| (    \\/| )   ( |   ) (   | (    )|");
-        System.out.println("| (__/ / | (___) |   | |      | |   | |      | (__    | (_____ | (___) |   | |   | (____)|");
-        System.out.println("|  __ (  |  ___  |   | |      | |   | |      |  __)   (_____  )|  ___  |   | |   |  _____)");
-        System.out.println("| (  \\ \\ | (   ) |   | |      | |   | |      | (            ) || (   ) |   | |   | (");
-        System.out.println("| )___) )| )   ( |   | |      | |   | (____/\\| (____/\\/\\____) || )   ( |___) (___| )");
-        System.out.println("|/ \\___/ |/     \\|   )_(      )_(   (_______/(_______/\\_______)|/     \\|\\_______/|/\n");
-        
-        System.out.println("===========================================================================================");
-        System.out.println("Welcome to a modified version of BATTLESHIP!");
-        System.out.println("(1) Start");
-        System.out.println("(0) Exit");
-        System.out.println("===========================================================================================");
-
-        mainMenuLogic();
-    }
-
-    public static void printBoard(char[][] array) {
-        for (int i = 0; i < array.length ; i++) {
-            for (int j = 0; j < array[0].length; j++) {
-                System.out.print(array[i][j] + " ");
-                if (j != array[0].length - 1)
-                    continue;
-                System.out.println("");
-            }
-        }
-        return;
-    }
 
     public static void gameStart() {
         System.out.println("[[BOARD SETUP]]");
@@ -147,7 +115,16 @@ public class MainGame {
         }
     }
 
-    public static void targetSpace(int x, int y, char[][] trueBoard, char[][] displayBoard) {
+    public static void targetSpace(char[][] board) {
         
     }
+
+    public static void turnTaking() {
+
+    }
+
+    public static void detectRemainingShips() {
+    }
+
+
 }
