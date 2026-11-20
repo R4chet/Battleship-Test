@@ -1,7 +1,11 @@
-public class Ship {
+class Ship {
     int size;
-    // The ship's origin begins on its bottom-left point.
-    public Ship(int size) {
+    String name;
+    int id;
+
+    public Ship(int size, String name, int id) {
         this.size = size;
+        this.name = name;
+        this.id = id;
     }
 }
