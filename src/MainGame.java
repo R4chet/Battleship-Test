@@ -21,19 +21,9 @@ public class MainGame {
             "..........".toCharArray(),
             "..........".toCharArray()
         };
+        Starter.shipPlacementMenu(emptyBoard);
+        Utilities.printBoard(emptyBoard);
 
     }
     
-    // INTERFACE COMPONENTS
-
-
-    // PROCESSING COMPONENTS
-    public static void targetSpace(char[][] board) {
-        
-    }
-
-    public static void detectRemainingShips() {
-    }
-
-
 }

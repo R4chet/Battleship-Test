@@ -51,4 +51,15 @@ public class Utilities {
         }
         return;
     }
+
+    public static void targetSpace(char[][] board) {
+        
+    }
+
+    public static void detectRemainingShips() {
+    }
+
+    public static void hideShips() {
+        
+    }
 }
