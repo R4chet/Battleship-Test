@@ -15,40 +15,18 @@ public class Starter {
     }
     public static void shipPlacementMenu(char[][] board) {
         System.out.println("\n[[PREPARATION]]");
-        System.out.println("Select the ship you would like to place: ");
-        System.out.println("(1) Carrier [size 5] ");        
-        System.out.println("(2) Battleship [size 4] ");     
-        System.out.println("(3) Destroyer [size 3] ");      
-        System.out.println("(4) Submarine [size 3] ");      
-        System.out.println("(5) Patrol boat [size 2] ");    
-        System.out.println("(0) Back ");
-        System.out.print  ("Enter a choice: ");
 
         try (Scanner input = new Scanner(System.in)) {
-            int choice = input.nextInt();
-            
-            switch (choice) {
-                case 1:
-                    shipPlacementSelection(5, board);
-                    break;
-                case 2:
-                    shipPlacementSelection(4, board);
-                    break;
-                case 3:
-                    shipPlacementSelection(3, board);
-                    break;
-                case 4:
-                    shipPlacementSelection(3, board);
-                    break;
-                case 5:
-                    shipPlacementSelection(2, board);
-                    break;
-                case 0:
-                    break;
-                default:
-                    System.out.println("Invalid option, please try again.");
-                    shipPlacementMenu(board);
-            }
+            System.out.println("Place a carrier [size 5]: ");
+            shipPlacementSelection(5, board);
+            System.out.println("Place a battleship [size 4]: ");
+            shipPlacementSelection(4, board);
+            System.out.println("Place a cruiser [size 3]: ");
+            shipPlacementSelection(3, board);
+            System.out.println("Place a submarine [size 3]: ");
+            shipPlacementSelection(3, board);
+            System.out.println("Place a patrol boat [size 2]: ");
+            shipPlacementSelection(2, board);
         }
 
     }
@@ -57,10 +35,14 @@ public class Starter {
         System.out.println("Select placement orientation:");
         System.out.println("(1) Vertical");
         System.out.println("(2) Horizontal");
-        System.out.println("(0) Cancel");
         System.out.print  ("Enter a choice: ");
         try (Scanner input = new Scanner(System.in)) {
-            int choice = input.nextInt();
+            int choice;
+            if (input.hasNextInt()) {
+                choice = input.nextInt();
+            } else {
+                choice = 0;
+            }
             switch (choice) {
                 case 1:
                     verticalShipPlacement(shipType, board);
@@ -68,11 +50,8 @@ public class Starter {
                 case 2:
                     horizontalShipPlacement(shipType, board);
                     break;
-                case 0:
-                    shipPlacementMenu(board);
-                    break;
                 default:
-                System.out.println("Invalid choice, try again.");
+                System.out.println("Invalid choice, please try again.");
                 shipPlacementSelection(shipType, board);
             }
         }
@@ -94,12 +73,12 @@ public class Starter {
                 verticalShipPlacement(shipSize, array);
             }
             int y = input.nextInt();
+            if ((y - shipSize < -1 || y > array.length - 1) || (x < 0 || x > array.length - 1)) {
+                    System.out.println("Invalid position.");
+                    verticalShipPlacement(shipSize, array);
+                } 
             
             for (int i = y; i > y - shipSize; i--) {
-                if ((y - shipSize < -1 || y > array.length - 1) || (x < 0 || x > array.length - 1)) {
-                    System.out.println("Invalid position.");
-                    break;
-                } 
                 array[i][x] = '#';
             }
             return;
@@ -122,12 +101,12 @@ public class Starter {
                 horizontalShipPlacement(shipSize, array);
             }
             int y = input.nextInt();
+            if ((x < 0 || x + shipSize > array.length) || (y < 0 || y > array.length - 1)) {
+                    System.out.println("Invalid placement.");
+                    horizontalShipPlacement(shipSize, array);
+                }
             
             for (int i = x; i < x + shipSize; i++) {
-                if ((x < 0 || x + shipSize > array.length) || (y < 0 || y > array.length - 1)) {
-                    System.out.println("Invalid placement.");
-                    break;
-                }
                 array[y][i] = '#';
             }
             return;
